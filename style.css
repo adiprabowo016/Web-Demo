@@ -1,0 +1,109 @@
+#mainheader {
+    padding-top: 12px;
+    padding-left: 15px;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+    font-family: monospace;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+
+}
+
+#navitem{
+    font-family: monospace;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.colparagraf1{
+    font-family: monospace;
+  font-optical-sizing: auto;
+  font-weight: bolder;
+  font-style: normal;
+}
+
+.colparagraf2{
+    font-family: monospace;
+}
+
+#whatido {
+    font-family: monospace;
+}
+
+#maindesc {
+    font-family: monospace;
+}
+
+#maindesc2 {
+    font-family: monospace;
+}
+
+#colaboration {
+    font-family: monospace;
+}
+
+#formjoin {
+    font-family: monospace;
+}
+
+#copyrightfooter {
+    font-family: monospace;
+}
+
+#namabesar, #posisi, #descexpe {
+    font-family: monospace;
+}
+
+#ctinfo, #skilltitle {
+    font-family: monospace;
+}
+
+.listi, #listedu {
+    font-family: monospace;
+}
+
+#workexper {
+    font-family: monospace;
+}
+
+#jobposisi,#listcompany {
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+#listexper {
+    font-family: monospace;
+    font-weight: lighter;
+}
+
+#contactus, #quicklink, #copyrightfooter {
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.copyrightfooter {
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+
+h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+.div {
+    display: block;
+    unicode-bidi: isolate;
+    height: auto;
+}
+
+.div.align-items-center
+{
+    position: relative;
+    width: 100%;
+    margin-top: 12px;
+}
