@@ -93,6 +93,23 @@ h1{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+#ctinfoline {
+  
+    border-color: black;
+}
+
+#buttoncv{
+    margin-bottom: 10px;
+}
+
+#buttonexp{
+    margin-bottom: 10px;
+}
+
+#rowbutton{
+    margin-top: 185px;
+    margin-bottom: 10px;
+}
 
 
 .div {
