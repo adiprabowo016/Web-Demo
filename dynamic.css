@@ -1,0 +1,270 @@
+/* ============================================================
+   dynamic.css  -  Dynamic UI enhancements
+   Loaded AFTER style.css so it can safely enhance the design
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- Animated gradient page background ---- */
+body {
+  background: linear-gradient(-45deg, #eef7ff, #d9f2ff, #eaf6ff, #e7fff4);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---- Scroll progress bar (injected by script.js) ---- */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd, #6f42c1);
+  box-shadow: 0 0 10px rgba(13, 110, 253, 0.6);
+  z-index: 1100;
+  transition: width 0.08s linear;
+}
+
+/* ---- Sticky glass header (class added by script.js) ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1050;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  backdrop-filter: blur(10px) saturate(160%);
+  border-bottom: 1px solid rgba(13, 110, 253, 0.08);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ---- Animated gradient brand text ---- */
+#mainheader {
+  background: linear-gradient(90deg, #0d6efd, #0dcaf0, #6f42c1, #0d6efd);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: brandShift 8s linear infinite;
+}
+@keyframes brandShift {
+  to { background-position: 300% center; }
+}
+
+/* ============================================================
+   Reveal-on-scroll animations
+   (kept before hover rules so hover transforms still win)
+   ============================================================ */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-zoom {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal       { transform: translateY(45px); }
+.reveal-left  { transform: translateX(-70px); }
+.reveal-right { transform: translateX(70px); }
+.reveal-zoom  { transform: scale(0.92); }
+
+.reveal.visible,
+.reveal-left.visible,
+.reveal-right.visible,
+.reveal-zoom.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ============================================================
+   Nav links - animated underline + lift
+   ============================================================ */
+#navitem .nav-link {
+  position: relative;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+#navitem .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #0dcaf0, #0d6efd);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+#navitem .nav-link:hover {
+  transform: translateY(-2px);
+  color: #0d6efd !important;
+}
+#navitem .nav-link:hover::after,
+#navitem .nav-link.active::after {
+  width: 70%;
+  left: 15%;
+}
+
+/* ============================================================
+   Buttons - lift + glow
+   ============================================================ */
+.btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 22px rgba(13, 110, 253, 0.35);
+}
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* ============================================================
+   Cards - lift + header gradient sweep
+   ============================================================ */
+.card {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+}
+.card .card-header {
+  transition: background 0.4s ease;
+  background-size: 200% auto;
+}
+.card:hover .card-header {
+  background-image: linear-gradient(90deg, #0dcaf0, #0d6efd, #0dcaf0);
+  animation: brandShift 3s linear infinite;
+}
+
+/* ============================================================
+   Images
+   ============================================================ */
+img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+img:hover {
+  filter: saturate(115%);
+}
+.hero-photo {
+  border-radius: 18px;
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+  object-fit: cover;
+}
+.hero-photo:hover {
+  transform: scale(1.015) rotate(-0.5deg);
+}
+
+/* ============================================================
+   Lists - subtle slide on hover
+   ============================================================ */
+#maindesc li,
+#maindesc2 li,
+.listi li,
+#listexper {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+#maindesc li:hover,
+#maindesc2 li:hover,
+.listi li:hover {
+  transform: translateX(6px);
+  color: #0d6efd;
+}
+
+/* ============================================================
+   Typing effect
+   ============================================================ */
+.typed-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #0d6efd;
+  font-weight: bold;
+  animation: cursorBlink 0.9s steps(1) infinite;
+}
+@keyframes cursorBlink {
+  50% { opacity: 0; }
+}
+
+/* Emoji wave */
+.wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveHand 2.5s ease-in-out infinite;
+}
+@keyframes waveHand {
+  0%, 60%, 100% { transform: rotate(0deg); }
+  10%, 30%      { transform: rotate(16deg); }
+  20%           { transform: rotate(-8deg); }
+}
+
+/* ============================================================
+   Back-to-top button (injected by script.js)
+   ============================================================ */
+#backToTop {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0dcaf0, #0d6efd);
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  box-shadow: 0 10px 24px rgba(13, 110, 253, 0.45);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  z-index: 1100;
+}
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+#backToTop:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 16px 30px rgba(13, 110, 253, 0.55);
+}
+
+/* ============================================================
+   Respect reduced-motion preferences
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  body { animation: none; }
+  #mainheader { animation: none; }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-zoom {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .wave { animation: none; }
+}
